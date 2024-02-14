@@ -1,0 +1,90 @@
+
+//+------------------------------------------------------------------+
+//|                                         Market Structures Pro MT4 |
+//|                                      Developer: Forex Robot Easy Team |
+//|                                               Site: forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+// Include necessary trading functions
+#include <Trade\Trade.mqh>
+
+// Enumerate the pattern modes
+enum PatternMode
+{
+   SWING_MODE,
+   INTERNAL_MODE
+};
+
+// Define the Market Structures Pro MT4 indicator
+class MarketStructuresProMT4
+{
+private:
+   PatternMode mode; // Current pattern mode
+   bool displaySwingMode; // Flag to enable/disable swing mode display
+   bool displayInternalMode; // Flag to enable/disable internal mode display
+
+public:
+   // Constructor
+   MarketStructuresProMT4()
+   {
+      mode = SWING_MODE; // Default mode is swing mode
+      displaySwingMode = true; // Default to display swing mode
+      displayInternalMode = true; // Default to display internal mode
+   }
+
+   // Function to set the pattern mode
+   void setPatternMode(PatternMode patternMode)
+   {
+      mode = patternMode;
+   }
+
+   // Function to enable/disable swing mode display
+   void setDisplaySwingMode(bool enable)
+   {
+      displaySwingMode = enable;
+   }
+
+   // Function to enable/disable internal mode display
+   void setDisplayInternalMode(bool enable)
+   {
+      displayInternalMode = enable;
+   }
+
+   // Function to identify and display patterns
+   void identifyPatterns()
+   {
+      if (displaySwingMode && mode == SWING_MODE)
+      {
+         // Display patterns in swing mode
+         // Use less vibrant colors, thicker lines, and larger symbols
+         // Code logic for identifying and displaying patterns in swing mode
+      }
+
+      if (displayInternalMode && mode == INTERNAL_MODE)
+      {
+         // Display patterns in internal mode
+         // Use higher contrast colors, finer lines, and smaller character sizes
+         // Code logic for identifying and displaying patterns in internal mode
+      }
+   }
+};
+
+// Entry point of the program
+void OnStart()
+{
+   // Create an instance of the Market Structures Pro MT4 indicator
+   MarketStructuresProMT4 marketStructuresProMT4;
+
+   // Set the pattern mode
+   marketStructuresProMT4.setPatternMode(SWING_MODE);
+
+   // Enable/disable display of each mode
+   marketStructuresProMT4.setDisplaySwingMode(true);
+   marketStructuresProMT4.setDisplayInternalMode(false);
+
+   // Identify and display patterns
+   marketStructuresProMT4.identifyPatterns();
+
+   // Logical conclusion
+   // Additional code logic for trading based on identified patterns
+}
